@@ -3,29 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace MoRecTester
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            Application.EnableVisualStyles();
             var ratings = IO.DataReader.ReadRatings();
             var movies = IO.DataReader.ReadMovies();
-
             var recommender = new Engine.Recommender(ratings);
-            uint testUser = 2;
+            var controller = new UI.MainWindowController(movies, recommender);
+            var mainWindow = new UI.MainWindow(controller);
+            Application.Run(mainWindow);
 
-            foreach (var movie in ratings[testUser].GetRatedMovies())
-            {
-                Console.WriteLine($"{movies[movie].Name,-50} {ratings[testUser].GetRating(movie)}");
-            }
-
-            foreach (var result in recommender.GetRecommendations(ratings[testUser]).GetRange(0, 10))
-            {
-                Console.WriteLine($"{result.Item1}: {movies[result.Item2]}");
-
-            }
         }
     }
 }

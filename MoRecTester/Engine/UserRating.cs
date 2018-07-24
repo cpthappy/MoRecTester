@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MoRecTester.Engine
 {
-    class UserRating
+    public class UserRating
     {
         /// <summary>
         /// Unique user ID from dataset

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace MoRecTester.Engine
 {
-    class Recommender
+    public class Recommender
     {
         /// <summary>
         /// Dictionary with assignment user ID => Rating

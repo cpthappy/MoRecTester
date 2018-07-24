@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MoRecTester.Engine
 {
-    class Movie
+    public class Movie
     {
         /// <summary>
         /// Unique ID from Dataset
